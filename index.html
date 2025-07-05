@@ -1,184 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome to Maya's Gorgeous Nails</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #BE9F80, #ffffff);
-      color: #222;
-    }
-    header {
-      background-color: #99826A;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      font-size: 28px;
-    }
-    nav {
-      background: #D4B28F;
-      padding: 10px;
-      display: flex;
-      justify-content: space-around;
-      font-weight: bold;
-    }
-    nav a {
-      color: black;
-      text-decoration: none;
-    }
-    h2 {
-      text-align: center;
-      color: #444;
-      margin-top: 20px;
-    }
-    section {
-      padding: 20px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-    }
-    .addons input {
-      margin-right: 10px;
-    }
-    .price-display {
-      font-weight: bold;
-      margin-top: 20px;
-      font-size: 18px;
-    }
-    .submit-btn {
-      background: #99826A;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
-  <script>
-    function calculatePrice() {
-      let servicePrice = {
-        "one_small": 600, "one_medium": 700, "one_long": 800, "one_xl": 900,
-        "french_small": 675, "french_medium": 785, "french_long": 885, "french_xl": 985,
-        "mix_small": 850, "mix_medium": 950, "mix_long": 1100, "mix_xl": 1300,
-        "toes_one": 475, "toes_gel": 350, "toes_french": 500, "toes_combo": 430,
-        "pedicure_men": 600, "pedicure_women": 500
-      };
-
-      let base = document.getElementById("service").value;
-      let price = servicePrice[base] || 0;
-
-      if (document.getElementById("chrome").checked) price += 50;
-      if (document.getElementById("stones").checked) price += 50;
-      if (document.getElementById("nailart").checked) price += 75;
-      if (document.getElementById("nail3d").checked) price += 100;
-
-      const removeCount = parseInt(document.getElementById("remove").value) || 0;
-      price += removeCount * 50;
-
-      document.getElementById("total").innerText = "Estimated Price: SRD " + price;
-    }
-  </script>
+  <meta charset="UTF-8" />
+  <title>Maya’s Gorgeous Nails</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=The+Seasons&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body oninput="calculatePrice()">
-  <header>
-    WELCOME TO MAYA'S GORGEOUS NAILS 💅🏽
-  </header>
+<body>
+  <img src="logo.png" alt="Logo" class="logo" />
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">Add Ons</a>
-    <a href="#">Policies</a>
-    <a href="#">Cart</a>
-  </nav>
+  <h1>Welcome to</h1>
+  <h2>Maya’s Gorgeous Nails</h2>
 
-  <section>
-    <h2>Book Your Appointment</h2>
-    <form action="https://formsubmit.co/chemayanelzon@gmail.com" method="POST" enctype="multipart/form-data">
-      <div class="form-group">
-        <label>Your name:</label>
-        <input type="text" name="Name" required>
-      </div>
+  <a href="signup.html" class="btn">Get Started</a>
 
-      <div class="form-group">
-        <label>WhatsApp number:</label>
-        <input type="tel" name="Phone" required>
-      </div>
+  <div class="socials">
+    <a href="#" title="Facebook">📘</a>
+    <a href="#" title="WhatsApp">💬</a>
+    <a href="#" title="TikTok">🎵</a>
+  </div>
 
-      <div class="form-group">
-        <label>Select your service:</label>
-        <select name="Service" id="service" required>
-          <option value="">-- Choose One --</option>
-          <option value="one_small">One Colour - Small</option>
-          <option value="one_medium">One Colour - Medium</option>
-          <option value="one_long">One Colour - Long</option>
-          <option value="one_xl">One Colour - XL</option>
-
-          <option value="french_small">French - Small</option>
-          <option value="french_medium">French - Medium</option>
-          <option value="french_long">French - Long</option>
-          <option value="french_xl">French - XL</option>
-
-          <option value="mix_small">Mix Design - Small</option>
-          <option value="mix_medium">Mix Design - Medium</option>
-          <option value="mix_long">Mix Design - Long</option>
-          <option value="mix_xl">Mix Design - XL</option>
-
-          <option value="toes_one">Toes - One Colour Acrylic</option>
-          <option value="toes_gel">Toes - Gel Polish</option>
-          <option value="toes_french">Toes - French</option>
-          <option value="toes_combo">Acrylic Toes + Gel Polish</option>
-
-          <option value="pedicure_men">Pedicure (Men)</option>
-          <option value="pedicure_women">Pedicure (Women)</option>
-        </select>
-      </div>
-
-      <div class="form-group addons">
-        <label><strong>Add-ons:</strong></label><br>
-        <input type="checkbox" id="chrome" name="Add-on: Chrome" value="Yes"> Chrome<br>
-        <input type="checkbox" id="stones" name="Add-on: Stones/Stickers" value="Yes"> Stones / Stickers<br>
-        <input type="checkbox" id="nailart" name="Add-on: Nail Art" value="Yes"> Nail Art<br>
-        <input type="checkbox" id="nail3d" name="Add-on: 3D Art" value="Yes"> 3D Nail Art
-      </div>
-
-      <div class="form-group">
-        <label>How many nails do you need removed?</label>
-        <input type="number" name="Nail removal count" id="remove" placeholder="E.g. 4">
-      </div>
-
-      <div class="form-group">
-        <label>Upload photo of the design you want:</label>
-        <input type="file" name="Design Photo" accept=".jpg, .jpeg, .png">
-      </div>
-
-      <div class="form-group">
-        <label>Preferred date and time:</label>
-        <input type="datetime-local" name="Date & Time" required>
-      </div>
-
-      <div class="form-group">
-        <label>Any extra notes:</label>
-        <textarea name="Notes" placeholder="Example: nude color, short nails, no stones"></textarea>
-      </div>
-
-      <div class="form-group">
-        <input type="checkbox" name="Agree" required> I agree to the <a href="#">booking policy</a>
-      </div>
-
-      <div class="price-display" id="total">Estimated Price: SRD 0</div>
-
-      <div class="form-group">
-        <button class="submit-btn" type="submit">Submit Booking</button>
-      </div>
-    </form>
-  </section>
+  <script src="script.js"></script>
 </body>
 </html>
